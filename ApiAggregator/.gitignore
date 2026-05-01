@@ -1,0 +1,44 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+packages/
+
+# ASP.NET Core
+appsettings.Development.json
+
+# Publish
+publish/
+
+# Database / temp
+*.db
+*.db-shm
+*.db-wal
+
+# Coverage / test results
+TestResults/
+coverage/
+
+# Copilot / VS indexing
+CopilotIndices/
+CopilotSnapshots/
