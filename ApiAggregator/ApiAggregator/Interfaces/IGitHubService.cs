@@ -1,8 +1,8 @@
-using ApiAggregator.Models.Responses;
+using ApiAggregator.Models.ExternalApiDtos;
 
 namespace ApiAggregator.Interfaces;
 
 public interface IGitHubService
 {
-    Task<List<GitHubRepoDto>> GetRepositoriesAsync(string? searchQuery);
+	Task<List<GitHubRepoDto>> GetRepositoriesAsync(string searchQuery);
 }

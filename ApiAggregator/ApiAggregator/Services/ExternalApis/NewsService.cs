@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using ApiAggregator.Interfaces;
 using ApiAggregator.Models.Enums;
-using ApiAggregator.Models.Responses;
+using ApiAggregator.Models.ExternalApiDtos;
 
 namespace ApiAggregator.Services.ExternalApis;
 
@@ -16,10 +16,9 @@ public class NewsService : INewsService
         _configuration = configuration;
     }
 
-    public async Task<List<NewsArticleDto>> GetNewsAsync(string? query, SortBy? sortBy)
+    public async Task<List<NewsArticleDto>> GetNewsAsync(string searchQuery, SortBy? sortBy)
     {
         var apiKey = _configuration["ExternalApis:NewsApi:ApiKey"];
-        var searchQuery = string.IsNullOrWhiteSpace(query) ? "technology" : query;
 
         var newsSortBy = sortBy switch
         {

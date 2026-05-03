@@ -1,8 +1,8 @@
-using ApiAggregator.Models.Responses;
+using ApiAggregator.Models.ExternalApiDtos;
 
 namespace ApiAggregator.Interfaces;
 
 public interface IWeatherService
-{       
-    Task<OpenWeatherMapDto?> GetWeatherAsync(string? city);
+{
+    Task<OpenWeatherMapDto?> GetWeatherAsync(string city);
 }

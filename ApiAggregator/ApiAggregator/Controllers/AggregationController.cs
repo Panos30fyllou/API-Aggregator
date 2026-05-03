@@ -8,18 +8,18 @@ namespace ApiAggregator.Controllers;
 [Route("api/[controller]")]
 public class AggregationController : ControllerBase
 {
-    private readonly IAggregationService _aggregationService;
+	private readonly IAggregationService _aggregationService;
 
-    public AggregationController(IAggregationService aggregationService)
-    {
-        _aggregationService = aggregationService;
-    }
+	public AggregationController(IAggregationService aggregationService)
+	{
+		_aggregationService = aggregationService;
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> GetAggregatedData([FromQuery] AggregationRequest aggregationRequest)
-    {
-        var response = await _aggregationService.GetAggregatedDataAsync(aggregationRequest);
+	[HttpGet]
+	public async Task<IActionResult> GetAggregatedData([FromQuery] AggregationRequest aggregationRequest)
+	{
+		var response = await _aggregationService.GetAggregatedDataAsync(aggregationRequest);
 
-        return Ok(response);
-    }
+		return Ok(response);
+	}
 }

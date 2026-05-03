@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using ApiAggregator.Interfaces;
-using ApiAggregator.Models.Responses;
+using ApiAggregator.Models.ExternalApiDtos;
 
 namespace ApiAggregator.Services.ExternalApis;
 
@@ -15,12 +15,11 @@ public class WeatherService : IWeatherService
         _configuration = configuration;
     }
 
-    public async Task<OpenWeatherMapDto?> GetWeatherAsync(string? city)
+    public async Task<OpenWeatherMapDto?> GetWeatherAsync(string city)
     {
         var apiKey = _configuration["ExternalApis:OpenWeather:ApiKey"];
-        var selectedCity = string.IsNullOrWhiteSpace(city) ? "Athens" : city;
 
-        var url = $"https://api.openweathermap.org/data/2.5/weather?q={Uri.EscapeDataString(selectedCity)}&units=metric&appid={apiKey}";
+        var url = $"https://api.openweathermap.org/data/2.5/weather?q={Uri.EscapeDataString(city)}&units=metric&appid={apiKey}";
         var json = await _httpClient.GetStringAsync(url);
         var doc = JsonDocument.Parse(json);
 

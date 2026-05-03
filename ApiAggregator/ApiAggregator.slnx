@@ -2,5 +2,6 @@
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
   </Folder>
+  <Project Path="ApiAggregator.Tests/ApiAggregator.Tests.csproj" Id="e5b6bed3-cbd7-42bf-982f-6a409d9b0c54" />
   <Project Path="ApiAggregator/ApiAggregator.csproj" />
 </Solution>

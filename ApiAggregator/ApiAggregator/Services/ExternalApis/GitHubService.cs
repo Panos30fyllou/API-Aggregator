@@ -1,5 +1,5 @@
 ﻿using ApiAggregator.Interfaces;
-using ApiAggregator.Models.Responses;
+using ApiAggregator.Models.ExternalApiDtos;
 using System.Text.Json;
 
 namespace ApiAggregator.Services.ExternalApis;
@@ -13,10 +13,8 @@ public class GitHubService : IGitHubService
         _httpClient = httpClient;
     }
 
-    public async Task<List<GitHubRepoDto>> GetRepositoriesAsync(string? searchQuery)
+    public async Task<List<GitHubRepoDto>> GetRepositoriesAsync(string searchQuery)
     {
-        searchQuery = string.IsNullOrWhiteSpace(searchQuery) ? "dotnet" : searchQuery;
-
         var url = $"https://api.github.com/search/repositories?q={Uri.EscapeDataString(searchQuery)}&sort=stars&order=desc&per_page=5";
         var json = await _httpClient.GetStringAsync(url);
         var doc = JsonDocument.Parse(json);
